@@ -224,7 +224,7 @@ class ExamPointsApp(ctk.CTk):
     def submit(self):
         matric_number = self.matriculation_entry.get().strip()
         points = [e.get().strip() or "0" for e in self.exercise_entries]
-        total = sum(float(p) for p in points)
+        total = sum(float(p.replace(",", ".")) for p in points)
 
         with open(self.output_file, "r") as f:
             rows = list(csv.reader(f, delimiter=self.delimiter))
@@ -295,7 +295,7 @@ class ExamPointsApp(ctk.CTk):
 
     def compute_sum(self, event=None):
         points = [e.get().strip() or "0" for e in self.exercise_entries]
-        total = sum(float(p) for p in points)
+        total = sum(float(p.replace(",", ".")) for p in points)
         self.points_label.configure(text=f"{total:.1f}")
         self._enable_submit_button()
         
