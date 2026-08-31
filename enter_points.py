@@ -20,7 +20,7 @@ class ExamPointsApp(ctk.CTk):
         self.delimiter = args.delimiter
         self.input_file = args.file
         self.output_file = args.output
-        # self.dv_str = args.dv_str
+        self.dv_str = args.dv_str
         self.num_exercises = args.n
         self.sound_enabled = not args.no_sound
         self.rwth_strings = {
@@ -375,7 +375,7 @@ if __name__ == "__main__":
     parser.add_argument("n", type=int, help="Number of exercises")
     parser.add_argument("-d", dest="delimiter", default=";", help="CSV delimiter, default=';'")
     parser.add_argument("-output", dest="output", default="results.csv", help="Output CSV file")
-    # parser.add_argument("-dv_str", dest="dv_str", default="3", help="Drittversuch string")
+    parser.add_argument("-dv_str", dest="dv_str", default="3", help="Drittversuch string")
     parser.add_argument("-no_sound", dest="no_sound", action="store_true", help="Disable sound alerts")
     args = parser.parse_args()
 
