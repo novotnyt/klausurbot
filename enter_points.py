@@ -252,7 +252,8 @@ class ExamPointsApp(ctk.CTk):
 
     def lookup_student_data(self, event=None):
         matric_number = self.matriculation_entry.get().strip()
-
+        if self.editing_matric_number:
+            return
         with open(self.output_file, "r") as file:
             reader = csv.DictReader(file, delimiter=self.delimiter)
             for row in reader:
